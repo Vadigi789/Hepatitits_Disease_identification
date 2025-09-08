@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Liver Disease Info & Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #e0f0ff, #c0e0ff);
+            scroll-behavior: smooth; /* smooth scrolling effect */
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            position: relative;
+        }
+
+        /* Buttons inside header */
+        .header-btn {
+            position: absolute;
+            top: 15px;
+            padding: 10px 18px;
+            background-color: #ffffff;
+            color: #007bff;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .header-btn:hover {
+            background-color: #e6f0ff;
+            transform: translateY(-3px);
+        }
+
+        /* Specific positioning */
+        .records-btn {
+            left: 20px;
+        }
+
+        .predict-btn {
+            right: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #007bff;
+            margin-top: 0;
+        }
+
+        p {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Records table styling */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        tr:hover {
+            background-color: #e6f0ff;
+        }
+
+        footer {
+            text-align: center;
+            margin: 40px 0 0 0;
+            padding: 20px;
+            color: #333;
+            font-size: 14px;
+            background: #ffffffcc;
+            border-top: 2px solid #007bff;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header-btn {
+                padding: 8px 14px;
+            }
+
+            table {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    Liver Disease Awareness & Prediction
+    <!-- Left button -->
+    <button class="header-btn records-btn" onclick="document.getElementById('records').scrollIntoView({behavior: 'smooth'})">
+        Go to Records
+    </button>
+    <!-- Right button -->
+    <button class="header-btn predict-btn" onclick="window.location.href='/predict'">Go to Prediction</button>
+</header>
+
+<div class="container">
+    <div class="card">
+        <h2>Blood Donor </h2>
+        <p>A healthy blood donor shows no significant liver abnormalities. Regular checkups are recommended to maintain overall liver health.</p>
+    </div>
+
+    <div class="card">
+        <h2>Suspect Blood Donor </h2>
+        <p>A suspect blood donor may have minor liver irregularities or borderline test results. Further testing is recommended before donation.</p>
+    </div>
+
+    <div class="card">
+        <h2>Hepatitis </h2>
+        <p>Hepatitis is an inflammation of the liver, often caused by viral infection, alcohol, or toxins. Early detection and treatment can prevent severe complications.</p>
+    </div>
+
+    <div class="card">
+        <h2>Fibrosis </h2>
+        <p>Fibrosis is the formation of excess connective tissue in the liver due to chronic damage. It can progress to cirrhosis if untreated.</p>
+    </div>
+
+    <div class="card">
+        <h2>Cirrhosis </h2>
+        <p>Cirrhosis is severe liver scarring from long-term damage. It can lead to liver failure. Regular monitoring and lifestyle changes are crucial for management.</p>
+    </div>
+
+    <!-- Records Section -->
+    <div class="card" id="records">
+        <h2>Stored Predictions</h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Age</th>
+                <th>ALB</th>
+                <th>ALP</th>
+                <th>ALT</th>
+                <th>AST</th>
+                <th>BIL</th>
+                <th>CHE</th>
+                <th>CHOL</th>
+                <th>CREA</th>
+                <th>GGT</th>
+                <th>PROT</th>
+                <th>Gender</th>
+                <th>Prediction</th>
+            </tr>
+            {% for row in rows %}
+            <tr>
+                {% for col in row %}
+                <td>{{ col }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+<footer>
+    <p>Liver Disease Prediction App &copy; 2025</p>
+    <p>All rights reserved.</p>
+    <p><strong>Contact</strong></p>
+    <p>📞 8688526862 | 📧 <a href="mailto:vadigivenkatesh789@gmail.com">vadigivenkatesh789@gmail.com</a></p>
+</footer>
+
+</body>
+</html>
