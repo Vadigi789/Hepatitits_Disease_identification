@@ -1,0 +1,8 @@
+install scikit-learn
+flask
+mysql.connector
+numpy
+pandas
+pickle
+sklearn.linear_model import LogisticRegression
+sklearn.model_selection import train_test_split
