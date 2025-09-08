@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result - Hepatitis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #e6ffe6;
+            text-align: center;
+            padding: 50px;
+        }
+        .box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: green;
+        }
+        .home-btn {
+            margin-top: 20px;
+            padding: 10px 22px;
+            font-size: 16px;
+            background: #e6ffe6; /* same as body background */
+            color: #2e7d32;      /* softer green */
+            border: 1px solid #a5d6a7; /* very light green border */
+            border-radius: 20px; /* more rounded for soft look */
+            cursor: pointer;
+            font-weight: 500;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        .home-btn:hover {
+            background: #d9f9d9; /* very light hover effect */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>✅ Prediction Result</h1>
+        <p>The patient is classified as:</p>
+        <h2>⚠️ Fibrosis</h2>
+
+        <!-- Home Button -->
+        <button class="home-btn" onclick="window.location.href='/'">🏠 Go to Home</button>
+    </div>
+</body>
+</html>

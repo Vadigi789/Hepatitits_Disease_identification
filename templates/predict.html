@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Liver Disease Prediction Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #e0f0ff, #c0e0ff);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="number"], select {
+            padding: 10px;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input[type="number"]:focus, select:focus {
+            border-color: #0056b3;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .note {
+            text-align: center;
+            margin-top: 15px;
+            color: #555;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Liver Disease Prediction</h2>
+         <form action="{{ url_for('predict') }}" method="POST">
+            <label>Age:</label>
+            <input type="number" name="Age" step="any" required>
+
+            <label>ALB:</label>
+            <input type="number" name="ALB" step="any" required>
+
+            <label>ALP:</label>
+            <input type="number" name="ALP" step="any" required>
+
+            <label>ALT:</label>
+            <input type="number" name="ALT" step="any" required>
+
+            <label>AST:</label>
+            <input type="number" name="AST" step="any" required>
+
+            <label>BIL:</label>
+            <input type="number" name="BIL" step="any" required>
+
+            <label>CHE:</label>
+            <input type="number" name="CHE" step="any" required>
+
+            <label>CHOL:</label>
+            <input type="number" name="CHOL" step="any" required>
+
+            <label>CREA:</label>
+            <input type="number" name="CREA" step="any" required>
+
+            <label>GGT:</label>
+            <input type="number" name="GGT" step="any" required>
+
+            <label>PROT:</label>
+            <input type="number" name="PROT" step="any" required>
+
+            <label>Gender (0=Female, 1=Male):</label>
+            <select name="Sex_m" required>
+                <option value="">Select</option>
+                <option value="0">Female</option>
+                <option value="1">Male</option>
+            </select>
+
+            <button type="submit">Predict Disease</button>
+        </form>
+        <p class="note">Please enter accurate blood test values.</p>
+    </div>
+</body>
+</html>
